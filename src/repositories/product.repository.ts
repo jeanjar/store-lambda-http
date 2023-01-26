@@ -1,6 +1,6 @@
 import { FilterQuery, HydratedDocument } from 'mongoose';
 import { ProductModel } from '../schemas/product.schema';
-import CreateCategoryDTO from '@functions/categories.store/dto';
+import CreateProductDTO from '@functions/products.store/dto';
 
 export class ProductRepository<Schema> {
 
@@ -8,7 +8,7 @@ export class ProductRepository<Schema> {
     return ProductModel.find(filter).exec();
   }
 
-  async create(data: CreateCategoryDTO): Promise<HydratedDocument<Schema>> {
+  async create(data: CreateProductDTO): Promise<HydratedDocument<Schema>> {
     return ProductModel.create(data);
   }
 
@@ -18,5 +18,9 @@ export class ProductRepository<Schema> {
 
   async delete(id: string): Promise<HydratedDocument<Schema>> {
     return ProductModel.findByIdAndDelete(id).exec();
+  }
+
+  async update(id: string, data: CreateProductDTO): Promise<HydratedDocument<Schema>> {
+    return ProductModel.findByIdAndUpdate(id, data, {new: true}).exec();
   }
 }

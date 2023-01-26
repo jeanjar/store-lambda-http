@@ -7,7 +7,7 @@ import {
   categoriesStore,
   categoriesUpdate
 } from '@functions/categories';
-import { productsIndex, productsShow, productsStore } from '@functions/products';
+import { productsDelete, productsIndex, productsShow, productsStore, productsUpdate } from '@functions/products';
 
 const functions = {
   categoriesIndex,
@@ -17,7 +17,9 @@ const functions = {
   categoriesDelete,
   productsIndex,
   productsStore,
-  productsShow
+  productsShow,
+  productsUpdate,
+  productsDelete
 };
 
 const serverlessConfiguration: AWS = {

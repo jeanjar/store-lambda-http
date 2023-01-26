@@ -40,5 +40,7 @@ yarn test
 - GET: `products` # Products list
 - POST: `products` # Create new Product
     - { name, description, image, price, category }
+- PATCH: `products/{id}` # Create new Category
+    - { name, description, image, price, category }
 - GET `products/{id}` # get details from product by ID *WIP*
 - DEL `products/{id}` # delete product by ID *WIP*

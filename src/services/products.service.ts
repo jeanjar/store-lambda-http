@@ -25,4 +25,8 @@ export class ProductsService {
   async delete(id: string): Promise<HydratedDocument<Product>> {
     return this.repository.delete(id);
   }
+
+  async update(id: string, data: CreateProductDTO): Promise<HydratedDocument<Product>> {
+    return this.repository.update(id, data);
+  }
 }
