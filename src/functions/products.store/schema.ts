@@ -7,5 +7,5 @@ export default {
     price: {type: 'string'},
     category: {type: 'string'},
   },
-  required: ['name', 'description', 'price', 'category']
+  required: ['name', 'description', 'price', 'image', 'category']
 } as const;

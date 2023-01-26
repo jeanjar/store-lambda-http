@@ -19,4 +19,8 @@ export class CategoryRepository<Schema> {
   async delete(id: string): Promise<HydratedDocument<Schema>> {
     return CategoryModel.findByIdAndDelete(id).exec();
   }
+
+  async update(id: string, data: CreateCategoryDTO): Promise<HydratedDocument<Schema>> {
+    return CategoryModel.findByIdAndUpdate(id, data, {new: true}).exec();
+  }
 }

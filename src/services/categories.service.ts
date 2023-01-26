@@ -25,4 +25,8 @@ export class CategoriesService {
   async delete(id: string): Promise<HydratedDocument<Category>> {
     return this.repository.delete(id);
   }
+
+  async update(id: string, data: CreateCategoryDTO): Promise<HydratedDocument<Category>> {
+    return this.repository.update(id, data);
+  }
 }
