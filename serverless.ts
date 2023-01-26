@@ -1,11 +1,9 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
 import { categoriesDelete, categoriesIndex, categoriesShow, categoriesStore } from '@functions/categories';
 import { productsIndex, productsStore } from '@functions/products';
 
 const functions = {
-  hello,
   categoriesIndex,
   categoriesStore,
   categoriesShow,
