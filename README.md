@@ -19,6 +19,7 @@ serverless deploy
 # Tests
 
 ```shell
+# WIP
 yarn test
 ```
 
