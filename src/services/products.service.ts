@@ -1,32 +1,31 @@
-import { HydratedDocument } from 'mongoose';
 import { ProductRepository } from '../repositories/product.repository';
 import CreateProductDTO from '@functions/products.store/dto';
-import { Product, ProductSchema } from '../schemas/product.schema';
+import { ProductDocument } from '../schemas/product.schema';
 
 export class ProductsService {
-  private readonly repository: ProductRepository<ProductSchema>;
+  private readonly repository: ProductRepository;
 
   constructor() {
-    this.repository = new ProductRepository<ProductSchema>;
+    this.repository = new ProductRepository;
   }
 
-  async all(): Promise<Array<HydratedDocument<Product>>> {
+  async all(): Promise<Array<ProductDocument>> {
     return this.repository.all();
   }
 
-  async create(data: CreateProductDTO): Promise<HydratedDocument<Product>> {
+  async create(data: CreateProductDTO): Promise<ProductDocument> {
     return this.repository.create(data);
   }
 
-  async findById(id: string): Promise<HydratedDocument<Product>> {
+  async findById(id: string): Promise<ProductDocument | null> {
     return this.repository.findById(id);
   }
 
-  async delete(id: string): Promise<HydratedDocument<Product>> {
+  async delete(id: string): Promise<ProductDocument | null> {
     return this.repository.delete(id);
   }
 
-  async update(id: string, data: CreateProductDTO): Promise<HydratedDocument<Product>> {
+  async update(id: string, data: CreateProductDTO): Promise<ProductDocument | null> {
     return this.repository.update(id, data);
   }
 }

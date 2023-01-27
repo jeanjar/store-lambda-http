@@ -19,7 +19,7 @@ serverless deploy
 # Tests
 
 ```shell
-yarn test
+yarn test --detectOpenHandles
 ```
 
 # Endpoints

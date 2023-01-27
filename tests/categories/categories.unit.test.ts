@@ -8,7 +8,6 @@ describe('Unity test for categories', () => {
 
 
   beforeAll(async () => await connectMemoryDatabase());
-  afterAll(async () => await disconnectMemoryDatabase());
 
   const data: CreateCategoryDTO = {
     name: 'Category',
@@ -57,4 +56,6 @@ describe('Unity test for categories', () => {
     const deleted = await categoriesService.findById(first._id.toString());
     expect(deleted).toBeNull()
   });
-})
+
+  afterAll(async () => await disconnectMemoryDatabase());
+});
