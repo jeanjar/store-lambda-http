@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { HydratedDocument, model, Schema } from 'mongoose';
 
 export interface Category {
   name: string;
@@ -14,4 +14,5 @@ export const CategorySchema = new Schema<Category>({
   timestamps: true,
 });
 
+export type CategoryDocument = HydratedDocument<Category>;
 export const CategoryModel = model('categories', CategorySchema);

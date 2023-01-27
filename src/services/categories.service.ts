@@ -1,32 +1,31 @@
 import { CategoryRepository } from '../repositories/category.repository';
-import { Category, CategorySchema } from '../schemas/category.schema';
-import { HydratedDocument } from 'mongoose';
+import { CategoryDocument } from '../schemas/category.schema';
 import CreateCategoryDTO from '@functions/categories.store/dto';
 
 export class CategoriesService {
-  private readonly repository: CategoryRepository<CategorySchema>;
+  private readonly repository: CategoryRepository;
 
   constructor() {
-    this.repository = new CategoryRepository<CategorySchema>;
+    this.repository = new CategoryRepository;
   }
 
-  async all(): Promise<Array<HydratedDocument<Category>>> {
+  async all(): Promise<Array<CategoryDocument>> {
     return this.repository.all();
   }
 
-  async create(data: CreateCategoryDTO): Promise<HydratedDocument<Category>> {
+  async create(data: CreateCategoryDTO): Promise<CategoryDocument> {
     return this.repository.create(data);
   }
 
-  async findById(id: string): Promise<HydratedDocument<Category>> {
+  async findById(id: string): Promise<CategoryDocument | null> {
     return this.repository.findById(id);
   }
 
-  async delete(id: string): Promise<HydratedDocument<Category>> {
+  async delete(id: string): Promise<CategoryDocument | null> {
     return this.repository.delete(id);
   }
 
-  async update(id: string, data: CreateCategoryDTO): Promise<HydratedDocument<Category>> {
+  async update(id: string, data: CreateCategoryDTO): Promise<CategoryDocument | null> {
     return this.repository.update(id, data);
   }
 }
